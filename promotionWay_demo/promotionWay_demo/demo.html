@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style>
+textarea {
+	width: 100%;
+	height: 100%;
+/* 	display:none; */
+}
+</style>
+	<script src="clipboard.min.js"></script>
+</head>
+<body>
+	手机号码：<input type="text" id="msisdn"/> <button class="btn" id="createBtn" data-clipboard-action="copy" data-clipboard-text=''>生成promotionWay</button>
+	<br></br>
+	<!--<button class="btn" data-clipboard-action="copy" data-clipboard-text=''>clipboard粘贴</button>
+	<br></br>-->
+	<script>
+		var clipboard = new Clipboard('#createBtn');
+		console.log(clipboard);
+		$(document).ready(function() {
+			$("#createBtn").click(function(){
+				var msisdn = $("#msisdn").val();
+				var pwJson = {
+                    "promotionWay": {
+                        "creator": "H5",
+                        "publish": {},
+                        "initiatorId": msisdn,
+                        "initiatorType": "MSISDN",
+                        "tag": ["TIAOCI"]
+                    }
+                }
+
+				var pwJsonStr = JSON.stringify(pwJson);
+				console.log(pwJsonStr);
+				$('#createBtn').attr("data-clipboard-text", pwJsonStr);
+			});
+		});
+	</script>
+
+</body>
+</html>}
+
+

@@ -1,0 +1,44 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>示例代码</title>
+    <script src="miguggtrack.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="miguggtrack.js"></script>
+<script type="text/javascript">
+/**
+ * 参数1: 广告平台广告位ID
+ * 参数2: 扩展参数（即promotionway的字符串）
+ */
+window.ggtrack = new miguggtrack("A8958C904FD5FF55A71D1C96AA77A564", "{\"name\":\"iamarealpromotionway\"}");
+console.log(window.ggtrack );
+</script>
+<button id="btn1">点击1</button>
+<button id="btn2">点击2</button>
+<button id="btn3">点击3</button>
+<script type="text/javascript">
+document.getElementById("btn1").addEventListener("click", function () {
+  try {
+    /**
+     * 参数1: 字符串，标识按钮的tagName
+     * 参数2: 点击按钮后的跳转URL地址
+     */
+    window.ggtrack.click('button1', 'http://baidu.com');
+  } catch (e) {}
+});
+document.getElementById("btn2").addEventListener("click", function () {
+  try {
+    window.ggtrack.click('button2', 'http://bing.com');
+  } catch (e) {}
+});
+document.getElementById("btn3").addEventListener("click", function () {
+  try {
+    window.ggtrack.click('button3', 'http://sogou.com');
+  } catch (e) {}
+});
+</script>
+</body>
+</html>
